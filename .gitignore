@@ -218,6 +218,7 @@ data/interim/*
 data/balanced/*
 data/processed/*
 !data/**/.gitkeep
+!data/**/*.dvc
 
 # MLflow
 mlruns/
