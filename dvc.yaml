@@ -1,0 +1,11 @@
+stages:
+
+  ingest:
+    cmd: python src/data_ingestion.py
+      --input data/raw/US_Accidents_March23.csv
+      --output data/interim/ingested.csv
+    deps:
+      - src/data_ingestion.py
+      - data/raw/US_Accidents_March23.csv
+    outs:
+      - data/interim/ingested.csv

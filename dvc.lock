@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  ingest:
+    cmd: python src/data_ingestion.py --input data/raw/US_Accidents_March23.csv 
+      --output data/interim/ingested.csv
+    deps:
+    - path: data/raw/US_Accidents_March23.csv
+      hash: md5
+      md5: f04a223ad1a77e9ed85cca8128d57d6e
+      size: 3058183727
+    - path: src/data_ingestion.py
+      hash: md5
+      md5: 5a78e50d2102f8407163f54aef9a1653
+      size: 3597
+    outs:
+    - path: data/interim/ingested.csv
+      hash: md5
+      md5: 704117e46ef95d9d277290a5ce216472
+      size: 2053020606
