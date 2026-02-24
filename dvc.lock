@@ -17,3 +17,20 @@ stages:
       hash: md5
       md5: 704117e46ef95d9d277290a5ce216472
       size: 2053020606
+  preprocess:
+    cmd: python src/preprocessing.py --input data/interim/ingested.csv --output 
+      data/interim/preprocessed.csv
+    deps:
+    - path: data/interim/ingested.csv
+      hash: md5
+      md5: 704117e46ef95d9d277290a5ce216472
+      size: 2053020606
+    - path: src/preprocessing.py
+      hash: md5
+      md5: dfe1a175f7087d0522fd9364e3569524
+      size: 15600
+    outs:
+    - path: data/interim/preprocessed.csv
+      hash: md5
+      md5: 79f6ddbb042fbaeaa56dbc9e18311e8c
+      size: 1599529885

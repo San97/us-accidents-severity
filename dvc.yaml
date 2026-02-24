@@ -9,3 +9,13 @@ stages:
       - data/raw/US_Accidents_March23.csv
     outs:
       - data/interim/ingested.csv
+
+  preprocess:
+    cmd: python src/preprocessing.py
+      --input data/interim/ingested.csv
+      --output data/interim/preprocessed.csv
+    deps:
+      - src/preprocessing.py
+      - data/interim/ingested.csv
+    outs:
+      - data/interim/preprocessed.csv
