@@ -34,3 +34,25 @@ stages:
       hash: md5
       md5: 79f6ddbb042fbaeaa56dbc9e18311e8c
       size: 1599529885
+  feature_engineer:
+    cmd: python src/feature_engineering.py --input data/interim/preprocessed.csv
+      --output data/processed/features.csv --params params.yaml
+    deps:
+    - path: data/interim/preprocessed.csv
+      hash: md5
+      md5: 79f6ddbb042fbaeaa56dbc9e18311e8c
+      size: 1599529885
+    - path: src/feature_engineering.py
+      hash: md5
+      md5: c09b518ff25140653f2b4c9a246854da
+      size: 10879
+    params:
+      params.yaml:
+        feature_engineering:
+          random_seed: 42
+          drop_severity: 1
+    outs:
+    - path: data/processed/features.csv
+      hash: md5
+      md5: 46757050bb08c058d557755aa2de9a57
+      size: 57115284

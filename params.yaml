@@ -1,0 +1,29 @@
+feature_engineering:
+  random_seed: 42       # Controls undersampling reproducibility
+  drop_severity: 1      # Severity class to exclude entirely (too few samples)
+
+split:
+  test_size: 0.2        # Fraction of balanced data held out for evaluation
+  random_state: 91      # Matches original notebook for comparability
+
+models:
+  random_forest:
+    n_iter: 50
+    cv_folds: 5
+    max_depth_range: [1, 40]
+    n_estimators_range: [20, 100]
+  adaboost:
+    n_iter: 50
+    cv_folds: 5
+    n_estimators_range: [40, 100]
+  gradient_boosting:
+    max_depth: 13
+    n_estimators: 120
+  logistic_regression:
+    multi_class: multinomial
+  neural_network:
+    hidden_layers: [256, 128, 64, 32, 16]
+  xgboost:
+    max_depth: 12
+    n_estimators: 150
+    objective: "multi:softprob"

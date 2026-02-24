@@ -19,3 +19,16 @@ stages:
       - data/interim/ingested.csv
     outs:
       - data/interim/preprocessed.csv
+
+  feature_engineer:
+    cmd: python src/feature_engineering.py
+      --input data/interim/preprocessed.csv
+      --output data/processed/features.csv
+      --params params.yaml
+    deps:
+      - src/feature_engineering.py
+      - data/interim/preprocessed.csv
+    params:
+      - feature_engineering
+    outs:
+      - data/processed/features.csv
